@@ -9,14 +9,14 @@ keywords = ["cli", "color", "no-std", "terminal", "ansi"]
 edition = "2018"
 
 [features]
-auto = ["interactive", "clicolor", "no_color", "term", "windows"]
+color = ["api", "interactive", "clicolor", "no_color", "term", "windows"]
 std = []
-color = ["std", "bitflags"]
-interactive = ["color", "atty"]
-clicolor = ["color", "concolor-query"]
-no_color = ["color", "concolor-query"]
-term = ["color", "concolor-query"]
-windows = ["color", "concolor-query/windows"]
+api = ["std", "bitflags"]
+interactive = ["api", "atty"]
+clicolor = ["api", "concolor-query"]
+no_color = ["api", "concolor-query"]
+term = ["api", "concolor-query"]
+windows = ["api", "concolor-query/windows"]
 
 [dependencies]
 concolor-query = { version = "0.1", path = "../query", optional = true }

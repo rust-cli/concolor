@@ -22,6 +22,11 @@ pub struct Color {
 }
 
 impl Color {
+    /// Set the user selection on `concolor_control`
+    pub fn apply(&self) {
+        concolor_control::set(self.when());
+    }
+
     /// Get the user's selection
     pub fn when(&self) -> ColorChoice {
         self.color

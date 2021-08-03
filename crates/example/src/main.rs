@@ -11,7 +11,7 @@ struct Args {
 fn main() {
     let args = Args::from_args();
     dbg!(&args);
-    concolor_control::set(args.color.when());
+    args.color.apply();
     dbg!(concolor_control::get(concolor_control::Stream::Stdout));
     dbg!(concolor_control::get(concolor_control::Stream::Stderr));
     dbg!(concolor_control::get(concolor_control::Stream::Either));

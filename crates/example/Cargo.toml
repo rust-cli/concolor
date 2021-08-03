@@ -10,5 +10,6 @@ edition = "2018"
 
 [dependencies]
 structopt = "0.3"
-concolor-control = { version = "0.1", path = "../control", features = ["auto"] }
 concolor-clap = { version = "0.1", path = "../clap" }
+# Only pulled in to dump data
+concolor-control = { version = "0.1", path = "../control", features = ["color"] }

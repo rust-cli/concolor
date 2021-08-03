@@ -4,7 +4,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! concolor-control = { version = "0.1.0", features = "auto" }
+//! concolor-control = { version = "0.1.0", features = "color" }
 //! ```
 //!
 //! If you are providing a command line option for controlling color, just call
@@ -27,7 +27,7 @@
 //! At times, you might want to provide a convenience feature for color support, so you could also:
 //! ```toml
 //! [features]
-//! color = "concolor-control/auto"
+//! color = "concolor-control/color"
 //!
 //! [dependencies]
 //! concolor-control = { version = "0.1.0", optional = True}
@@ -50,7 +50,8 @@
 //!
 //! # Features
 //!
-//! - `auto`: Guess color status based on all possible sources, including:
+//! - `color`: Guess color status based on all possible sources, including:
+//! - `api`: Allow controlling color via the API
 //! - `interactive`: Check if stdout/stderr is a TTY
 //! - `clicolor`: Respect [CLICOLOR] spec
 //! - `no_color`: Respect [NO_COLOR] spec
@@ -62,14 +63,14 @@
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
-#[cfg(feature = "color")]
+#[cfg(feature = "api")]
 mod color;
-#[cfg(feature = "color")]
+#[cfg(feature = "api")]
 pub use color::*;
 
-#[cfg(not(feature = "color"))]
+#[cfg(not(feature = "api"))]
 mod no_color;
-#[cfg(not(feature = "color"))]
+#[cfg(not(feature = "api"))]
 pub use no_color::*;
 
 mod choice;

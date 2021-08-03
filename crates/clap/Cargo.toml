@@ -8,6 +8,10 @@ categories = ["command-line-interface"]
 keywords = ["cli", "color", "no-std", "terminal", "ansi"]
 edition = "2018"
 
+[features]
+default = ["color"]
+color = ["concolor-control/color"]
+
 [dependencies]
 # Let the application decide what features to enable
 structopt = { version = "0.3", default-features = false }
