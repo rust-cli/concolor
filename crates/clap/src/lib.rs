@@ -5,6 +5,7 @@
 //! ```rust
 //! // ...
 //! #[derive(Debug, structopt::StructOpt)]
+//! #[structopt(setting = concolor_clap::color_choice())]
 //! struct Cli {
 //!     #[structopt(flatten)]
 //!     color: concolor_clap::Color,
@@ -24,5 +25,14 @@ impl Color {
     /// Get the user's selection
     pub fn when(&self) -> ColorChoice {
         self.color
+    }
+}
+
+pub fn color_choice() -> structopt::clap::AppSettings {
+    let color = concolor_control::get(concolor_control::Stream::Either);
+    if color.ansi_color() {
+        structopt::clap::AppSettings::ColorAlways
+    } else {
+        structopt::clap::AppSettings::ColorNever
     }
 }

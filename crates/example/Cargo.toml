@@ -1,0 +1,14 @@
+[package]
+name = "concolor-example"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+description = "Example binary for concolor"
+repository = "https://github.com/rust-cli/concolor"
+categories = ["command-line-interface"]
+keywords = ["cli", "color", "no-std", "terminal", "ansi"]
+edition = "2018"
+
+[dependencies]
+structopt = "0.3"
+concolor-control = { version = "0.1", path = "../control", features = ["auto"] }
+concolor-clap = { version = "0.1", path = "../clap" }

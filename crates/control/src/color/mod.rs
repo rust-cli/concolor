@@ -125,7 +125,7 @@ impl InternalFlags {
     }
 
     fn is_interactive(self, stream: crate::Stream) -> bool {
-        self.intersects(stream.flags())
+        self.contains(stream.flags())
     }
 }
 
