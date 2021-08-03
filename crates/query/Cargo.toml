@@ -1,8 +1,9 @@
 [package]
 name = "concolor-query"
 version = "0.1.0"
+license = "MIT OR Apache-2.0"
+description = "Look up colored console capabilities"
+repository = "https://github.com/rust-cli/concolor"
+categories = ["command-line-interface"]
+keywords = ["cli", "color", "no-std", "terminal", "ansi"]
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
