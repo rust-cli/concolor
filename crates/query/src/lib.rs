@@ -1,3 +1,6 @@
+#[cfg(feature = "windows")]
+pub mod windows;
+
 /// Check [CLICOLOR] status
 ///
 /// ANSI colors are supported and should be used when the program isn't piped.
