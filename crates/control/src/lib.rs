@@ -19,7 +19,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! concolor-control = { version = "0.0.3", features = "color" }
+//! concolor-control = { version = "0.0.4", features = "color" }
 //! ```
 //! Notes:
 //! - With the
@@ -41,7 +41,7 @@
 //! on `concolor-control`:
 //! ```toml
 //! [dependencies]
-//! concolor-control = { version = "0.0.3", default-features = false }
+//! concolor-control = { version = "0.0.4", default-features = false }
 //! ```
 //!
 //! At times, you might want to provide a convenience feature for color support, so you could also:
@@ -51,7 +51,7 @@
 //! color = "concolor-control/auto"
 //!
 //! [dependencies]
-//! concolor-control = { version = "0.0.3", optional = True}
+//! concolor-control = { version = "0.0.4", optional = True}
 //! ```
 //! Notes:
 //! - Your choice on whether to make this default or not
