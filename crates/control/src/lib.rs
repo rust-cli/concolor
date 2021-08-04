@@ -33,7 +33,7 @@
 //! concolor_control::set(when);
 //! ```
 //!
-//! See also [`concolor-clap`](lib.rs/concolor-clap)
+//! See also [`concolor-clap`](https://docs.rs/concolor-clap)
 //!
 //! # `[lib]`s
 //!
