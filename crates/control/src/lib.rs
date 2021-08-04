@@ -76,12 +76,12 @@
 //! # Features
 //!
 //! - `auto`: Guess color status based on all possible sources, including:
-//! - `api`: Allow controlling color via the API
-//! - `interactive`: Check if stdout/stderr is a TTY
-//! - `clicolor`: Respect [CLICOLOR] spec
-//! - `no_color`: Respect [NO_COLOR] spec
-//! - `term`: Check `TERM`
-//! - `windows`: Check if we can enable ANSI support
+//!   - `api`: Allow controlling color via the API
+//!   - `interactive`: Check if stdout/stderr is a TTY
+//!   - `clicolor`: Respect [CLICOLOR] spec
+//!   - `no_color`: Respect [NO_COLOR] spec
+//!   - `term`: Check `TERM`
+//!   - `windows`: Check if we can enable ANSI support
 //!
 //! [CLICOLOR]: https://bixense.com/clicolors/
 //! [NO_COLOR]: https://no-color.org/
