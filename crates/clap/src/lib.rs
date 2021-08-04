@@ -11,6 +11,10 @@
 //!     color: concolor_clap::Color,
 //! }
 //! ```
+//!
+//! ## Features
+//!
+//! - `auto` (default): Automatically detect color support
 
 /// Get color choice for initializing the `clap::App`
 pub fn color_choice() -> structopt::clap::AppSettings {
