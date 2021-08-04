@@ -42,6 +42,7 @@
 //! At times, you might want to provide a convenience feature for color support, so you could also:
 //! ```toml
 //! [features]
+//! default = ["color"]  # your choice on whether to make this default or not
 //! color = "concolor-control/color"
 //!
 //! [dependencies]
