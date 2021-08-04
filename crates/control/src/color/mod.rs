@@ -3,6 +3,9 @@ mod lazy;
 
 use choice::AtomicChoice;
 
+/// Current color state for a stream
+///
+/// Note: if you hold onto this around calls to [`set`], it will be inaccurate.
 #[derive(Clone, Debug)]
 pub struct Color {
     flags: InternalFlags,
@@ -11,24 +14,43 @@ pub struct Color {
 }
 
 impl Color {
-    pub fn truecolor(&self) -> bool {
-        self.ansi_color() && self.flags.contains(InternalFlags::TRUECOLOR)
-    }
-
+    /// Should color be used?
+    ///
+    /// Note: if supporting wincon coloring, fallback to ANSI if this returns `true`.
     pub fn color(&self) -> bool {
         match self.choice {
             crate::ColorChoice::Auto => self.flags.color(self.stream),
+            crate::ColorChoice::AlwaysAnsi => true,
             crate::ColorChoice::Always => true,
             crate::ColorChoice::Never => false,
         }
     }
 
+    /// Should use ANSI coloring?
+    #[cfg(not(windows))]
     pub fn ansi_color(&self) -> bool {
         match self.choice {
             crate::ColorChoice::Auto => self.flags.ansi_color(self.stream),
+            crate::ColorChoice::AlwaysAnsi => true,
             crate::ColorChoice::Always => true,
             crate::ColorChoice::Never => false,
         }
+    }
+
+    /// Should use ANSI coloring?
+    #[cfg(windows)]
+    pub fn ansi_color(&self) -> bool {
+        match self.choice {
+            crate::ColorChoice::Auto => self.flags.ansi_color(self.stream),
+            crate::ColorChoice::AlwaysAnsi => true,
+            crate::ColorChoice::Always => self.flags.intersects(InternalFlags::ANSI_ANY),
+            crate::ColorChoice::Never => false,
+        }
+    }
+
+    /// Should use ANSI truecolor?
+    pub fn truecolor(&self) -> bool {
+        self.ansi_color() && self.flags.contains(InternalFlags::TRUECOLOR)
     }
 }
 
@@ -85,7 +107,7 @@ fn init() -> usize {
         }
     }
     if cfg!(feature = "windows") && concolor_query::windows::enable_ansi_colors().unwrap_or(false) {
-        flags |= InternalFlags::WIN_ANSI;
+        flags |= InternalFlags::ANSI_WIN;
     }
 
     flags.bits()
@@ -98,8 +120,9 @@ bitflags::bitflags! {
         const NO_COLOR       = 0b00000000100;
         const TERM_SUPPORT   = 0b00000001000;
         const ANSI_SUPPORT   = 0b00000010000;
-        const TRUECOLOR      = 0b00000100000;
-        const WIN_ANSI       = 0b00001000000;
+        const ANSI_WIN       = 0b00000100000;
+        const ANSI_ANY       = 0b00000110000;
+        const TRUECOLOR      = 0b00001000000;
         const TTY_STDOUT     = 0b00010000000;
         const TTY_STDERR     = 0b00100000000;
         const TTY_ANY        = 0b00110000000;
@@ -118,7 +141,7 @@ impl InternalFlags {
     fn ansi_color(self, stream: crate::Stream) -> bool {
         (self.is_interactive(stream)
             && self.contains(Self::TERM_SUPPORT)
-            && (self.contains(Self::ANSI_SUPPORT) || self.contains(Self::WIN_ANSI))
+            && self.intersects(Self::ANSI_ANY)
             && self.contains(Self::CLICOLOR)
             && !self.contains(Self::NO_COLOR))
             || self.contains(Self::CLICOLOR_FORCE)

@@ -3,6 +3,7 @@
 #[non_exhaustive]
 pub enum ColorChoice {
     Auto,
+    AlwaysAnsi,
     Always,
     Never,
 }
