@@ -1,4 +1,4 @@
-/// Output stream to get [`Color`][crate::Color] state for
+/// Output stream to [`get()`][crate::get] the [`Color`][crate::Color] state for
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Stream {
     Stdout,

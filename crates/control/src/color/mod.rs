@@ -3,9 +3,9 @@ mod lazy;
 
 use choice::AtomicChoice;
 
-/// Current color state for a stream
+/// Current color state for a [`Stream`][crate::Stream]
 ///
-/// Note: if you hold onto this around calls to [`set`], it will be inaccurate.
+/// Note: if you hold onto this around calls to [`set`][crate::set], it will be inaccurate.
 #[derive(Clone, Debug)]
 pub struct Color {
     flags: InternalFlags,
@@ -67,7 +67,7 @@ pub fn get(stream: crate::Stream) -> Color {
     }
 }
 
-/// Override the detected [`ColorChoice`]
+/// Override the detected [`ColorChoice`][crate::ColorChoice]
 pub fn set(choice: crate::ColorChoice) {
     USER.set(choice)
 }
