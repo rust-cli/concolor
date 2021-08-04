@@ -1,6 +1,6 @@
 [package]
 name = "concolor-example"
-version = "0.1.0"
+version = "0.0.1"
 license = "MIT OR Apache-2.0"
 description = "Example binary for concolor"
 repository = "https://github.com/rust-cli/concolor"
@@ -11,6 +11,6 @@ publish = false
 
 [dependencies]
 structopt = "0.3"
-concolor-clap = { version = "0.1", path = "../clap" }
+concolor-clap = { version = "0.0.1", path = "../clap" }
 # Only pulled in to dump data
-concolor-control = { version = "0.1", path = "../control", features = ["auto"] }
+concolor-control = { version = "0.0.1", path = "../control", features = ["auto"] }
