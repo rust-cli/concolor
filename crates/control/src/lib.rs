@@ -42,12 +42,16 @@
 //! At times, you might want to provide a convenience feature for color support, so you could also:
 //! ```toml
 //! [features]
-//! default = ["color"]  # your choice on whether to make this default or not
-//! color = "concolor-control/color"
+//! default = ["color"]
+//! color = "concolor-control/auto"
 //!
 //! [dependencies]
 //! concolor-control = { version = "0.1.0", optional = True}
 //! ```
+//! Notes:
+//! - Your choice on whether to make this default or not
+//! - Depending on your context, name it either `color` (for a crate like `clap`) or `auto` (for a
+//!   crate like `termcolor`)
 //!
 //! Then just ask as needed:
 //! ```rust
@@ -66,7 +70,7 @@
 //!
 //! # Features
 //!
-//! - `color`: Guess color status based on all possible sources, including:
+//! - `auto`: Guess color status based on all possible sources, including:
 //! - `api`: Allow controlling color via the API
 //! - `interactive`: Check if stdout/stderr is a TTY
 //! - `clicolor`: Respect [CLICOLOR] spec

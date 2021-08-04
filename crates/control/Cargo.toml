@@ -9,7 +9,7 @@ keywords = ["cli", "color", "no-std", "terminal", "ansi"]
 edition = "2018"
 
 [features]
-color = ["api", "interactive", "clicolor", "no_color", "term", "windows"]
+auto = ["api", "interactive", "clicolor", "no_color", "term", "windows"]
 std = []
 api = ["std", "bitflags"]
 interactive = ["api", "atty"]
@@ -19,7 +19,7 @@ term = ["api", "concolor-query"]
 windows = ["api", "concolor-query/windows"]
 
 [package.metadata.docs.rs]
-features = ["color"]
+features = ["auto"]
 
 [dependencies]
 concolor-query = { version = "0.1", path = "../query", optional = true }

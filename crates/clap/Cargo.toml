@@ -9,8 +9,8 @@ keywords = ["cli", "color", "no-std", "terminal", "ansi"]
 edition = "2018"
 
 [features]
-default = ["color"]
-color = ["concolor-control/color"]
+default = ["auto"]
+auto = ["concolor-control/auto"]
 
 [dependencies]
 # Let the application decide what features to enable
