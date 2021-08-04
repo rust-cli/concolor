@@ -21,6 +21,11 @@
 //! [dependencies]
 //! concolor-control = { version = "0.0.3", features = "color" }
 //! ```
+//! Notes:
+//! - With the
+//!   [2021 edition / `resolver = "2"`](https://doc.rust-lang.org/nightly/edition-guide/rust-2021/default-cargo-resolver.html),
+//!   you will also need to specify this in your `build-dependencies` if you want `build.rs` to have color
+//!   as well.
 //!
 //! If you are providing a command line option for controlling color, just call
 //! ```rust
