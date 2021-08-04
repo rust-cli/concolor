@@ -6,6 +6,12 @@
 ![License](https://img.shields.io/crates/l/conclor-query.svg)
 [![Crates Status](https://img.shields.io/crates/v/concolor-query.svg)](https://crates.io/crates/concolor-query)
 
+Features
+- Detects interactive `stdout` / `stderr`
+- Detects terminal capabilities via `TERM`
+- Detects and enables ANSI support on Windows
+- Supports [CLICOLOR] and [NO_COLOR]
+
 ## [Contribute](../../CONTRIBUTING.md)
 
 ## Special Thanks
@@ -24,3 +30,5 @@ Prior art for global colors control:
 Dual-licensed under [MIT](../../LICENSE-MIT) or [Apache 2.0](../../LICENSE-APACHE)
 
 [Documentation]: https://docs.rs/concolor-query
+[CLICOLOR]: https://bixense.com/clicolors/
+[NO_COLOR]: https://no-color.org/
