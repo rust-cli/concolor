@@ -14,6 +14,16 @@ Features
 
 ## [Contribute](../../CONTRIBUTING.md)
 
+Special note: to be successful, this crate **cannot** break compatibility or
+else different crates in the hierarchy will be reading different globals.
+While end users can work around this, it isn't ideal.  Once we hit 1.0, we
+should strive to keep the API compatible.  If we need a new API, we can make
+the old API an adapter to the new logic.
+
+Similarly, we should strive to reduce **risk** of breaking compatibility by
+exposing as little as possible.  Anything more should be broken out into a
+separate crate that this crate can call into.
+
 ## Special Thanks
 
 Prior art for global colors control:
