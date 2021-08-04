@@ -3,8 +3,8 @@
 > **Convenience helper for working with `clap`**
 
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
-![License](https://img.shields.io/crates/l/conclor-query.svg)
-[![Crates Status](https://img.shields.io/crates/v/concolor-query.svg)](https://crates.io/crates/concolor-query)
+![License](https://img.shields.io/crates/l/conclor-clap.svg)
+[![Crates Status](https://img.shields.io/crates/v/concolor-clap.svg)](https://crates.io/crates/concolor-clap)
 
 ## [Contribute](../../CONTRIBUTING.md)
 
@@ -12,4 +12,4 @@
 
 Dual-licensed under [MIT](../../LICENSE-MIT) or [Apache 2.0](../../LICENSE-APACHE)
 
-[Documentation]: https://docs.rs/concolor-query
+[Documentation]: https://docs.rs/concolor-clap
