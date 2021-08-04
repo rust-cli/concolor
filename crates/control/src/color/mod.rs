@@ -138,3 +138,31 @@ impl crate::Stream {
         }
     }
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn is_interactive() {
+        let flags = InternalFlags::empty();
+        assert!(!flags.is_interactive(crate::Stream::Stdout));
+        assert!(!flags.is_interactive(crate::Stream::Stderr));
+        assert!(!flags.is_interactive(crate::Stream::Either));
+
+        let flags = InternalFlags::TTY_STDOUT;
+        assert!(flags.is_interactive(crate::Stream::Stdout));
+        assert!(!flags.is_interactive(crate::Stream::Stderr));
+        assert!(!flags.is_interactive(crate::Stream::Either));
+
+        let flags = InternalFlags::TTY_STDERR;
+        assert!(!flags.is_interactive(crate::Stream::Stdout));
+        assert!(flags.is_interactive(crate::Stream::Stderr));
+        assert!(!flags.is_interactive(crate::Stream::Either));
+
+        let flags = InternalFlags::TTY_STDOUT | InternalFlags::TTY_STDERR;
+        assert!(flags.is_interactive(crate::Stream::Stdout));
+        assert!(flags.is_interactive(crate::Stream::Stderr));
+        assert!(flags.is_interactive(crate::Stream::Either));
+    }
+}
