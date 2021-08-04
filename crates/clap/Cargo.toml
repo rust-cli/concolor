@@ -15,4 +15,4 @@ auto = ["concolor-control/auto"]
 [dependencies]
 # Let the application decide what features to enable
 structopt = { version = "0.3", default-features = false }
-concolor-control = { version = "^0.0.4", path = "../control", default-features = false }
+concolor-control = { version = "^0.0.5", path = "../control", default-features = false }
