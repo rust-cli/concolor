@@ -10,7 +10,7 @@ edition = "2018"
 
 [features]
 default = ["auto"]
-auto = ["concolor-control/auto"]
+auto = ["concolor-control/auto", "structopt/color"]
 
 [dependencies]
 # Let the application decide what features to enable
