@@ -3,7 +3,7 @@
 > **bin/lib API for managing terminal styling**
 
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
-![License](https://img.shields.io/crates/l/conclor-control.svg)
+![License](https://img.shields.io/crates/l/concolor-control.svg)
 [![Crates Status](https://img.shields.io/crates/v/concolor-control.svg)](https://crates.io/crates/concolor-control)
 
 Features

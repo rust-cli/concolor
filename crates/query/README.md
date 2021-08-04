@@ -3,7 +3,7 @@
 > **Low level terminal capability lookups**
 
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
-![License](https://img.shields.io/crates/l/conclor-query.svg)
+![License](https://img.shields.io/crates/l/concolor-query.svg)
 [![Crates Status](https://img.shields.io/crates/v/concolor-query.svg)](https://crates.io/crates/concolor-query)
 
 ## [Contribute](../../CONTRIBUTING.md)
