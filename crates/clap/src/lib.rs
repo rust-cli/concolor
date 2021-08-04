@@ -22,6 +22,7 @@ pub fn color_choice() -> structopt::clap::AppSettings {
     }
 }
 
+/// Mixin a clap argument for colored output selection
 #[derive(Copy, Clone, Default, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Color {
     /// Controls when to use color.
@@ -45,7 +46,7 @@ impl Color {
     }
 }
 
-/// Selection for when to color output
+/// Argument value for when to color output
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum ColorChoice {
     Auto,
