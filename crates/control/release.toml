@@ -1,3 +1,4 @@
+enable-features = ["color"]
 pre-release-replacements = [
   {file="src/lib.rs", search="concolor-control = \\{ version = \".+?\"", replace="concolor-control = { version = \"{{version}}\"", exactly=3},
 ]

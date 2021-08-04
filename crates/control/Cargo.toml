@@ -18,6 +18,9 @@ no_color = ["api", "concolor-query"]
 term = ["api", "concolor-query"]
 windows = ["api", "concolor-query/windows"]
 
+[package.metadata.docs.rs]
+features = ["color"]
+
 [dependencies]
 concolor-query = { version = "0.1", path = "../query", optional = true }
 bitflags = { version = "1", optional = true }
