@@ -57,7 +57,7 @@ impl Color {
 static FLAGS: lazy::Lazy = lazy::Lazy::new();
 static USER: AtomicChoice = AtomicChoice::new();
 
-/// Get the current [`Color`] state for a given [`Stream`]
+/// Get the current [`Color`] state for a given [`Stream`][crate::Stream]
 pub fn get(stream: crate::Stream) -> Color {
     let flags = FLAGS.get_or_init(init);
     Color {
