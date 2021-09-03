@@ -13,7 +13,10 @@ pub mod windows;
 /// [CLICOLOR]: https://bixense.com/clicolors/
 pub fn clicolor() -> bool {
     let value = std::env::var_os("CLICOLOR");
-    value.as_deref().unwrap_or(std::ffi::OsStr::new("1")) != "0"
+    value
+        .as_deref()
+        .unwrap_or_else(|| std::ffi::OsStr::new("1"))
+        != "0"
 }
 
 /// Check [CLICOLOR_FORCE] status
@@ -23,7 +26,10 @@ pub fn clicolor() -> bool {
 /// [CLICOLOR_FORCE]: https://bixense.com/clicolors/
 pub fn clicolor_force() -> bool {
     let value = std::env::var_os("CLICOLOR_FORCE");
-    value.as_deref().unwrap_or(std::ffi::OsStr::new("0")) != "0"
+    value
+        .as_deref()
+        .unwrap_or_else(|| std::ffi::OsStr::new("0"))
+        != "0"
 }
 
 /// Check [NO_COLOR] status
