@@ -1,6 +1,6 @@
 [package]
 name = "concolor-clap"
-version = "0.0.5"
+version = "0.0.6"
 license = "MIT OR Apache-2.0"
 description = "Clap mixin to control console colors"
 repository = "https://github.com/rust-cli/concolor"
@@ -16,4 +16,4 @@ api_unstable = ["concolor-control/api_unstable"]
 [dependencies]
 # Let the application decide what features to enable
 structopt = { version = "0.3", default-features = false }
-concolor-control = { version = "^0.0.6", path = "../control", default-features = false }
+concolor-control = { version = "^0.0.7", path = "../control", default-features = false }
