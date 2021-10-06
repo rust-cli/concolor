@@ -68,6 +68,7 @@ pub fn get(stream: crate::Stream) -> Color {
 }
 
 /// Override the detected [`ColorChoice`][crate::ColorChoice]
+#[cfg(feature = "api_unstable")]
 pub fn set(choice: crate::ColorChoice) {
     USER.set(choice)
 }

@@ -22,4 +22,5 @@ pub fn get(_stream: crate::Stream) -> Color {
     Color {}
 }
 
+#[cfg(feature = "api_unstable")]
 pub fn set(_choice: crate::ColorChoice) {}
