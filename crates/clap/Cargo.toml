@@ -11,6 +11,7 @@ edition = "2018"
 [features]
 default = ["auto"]
 auto = ["concolor-control/auto", "structopt/color"]
+api_unstable = ["concolor-control/api_unstable"]
 
 [dependencies]
 # Let the application decide what features to enable

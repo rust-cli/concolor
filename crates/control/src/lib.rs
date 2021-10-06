@@ -76,7 +76,8 @@
 //! # Features
 //!
 //! - `auto`: Guess color status based on all possible sources, including:
-//!   - `api`: Allow controlling color via the API
+//!   - `api_unstable`: Allow controlling color via the API (until 1.0, this is not guaranteed to
+//!      work across crates which is why this is `_unstable`)
 //!   - `interactive`: Check if stdout/stderr is a TTY
 //!   - `clicolor`: Respect [CLICOLOR] spec
 //!   - `no_color`: Respect [NO_COLOR] spec
@@ -88,14 +89,14 @@
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
-#[cfg(feature = "api")]
+#[cfg(feature = "core")]
 mod color;
-#[cfg(feature = "api")]
+#[cfg(feature = "core")]
 pub use color::*;
 
-#[cfg(not(feature = "api"))]
+#[cfg(not(feature = "core"))]
 mod no_color;
-#[cfg(not(feature = "api"))]
+#[cfg(not(feature = "core"))]
 pub use no_color::*;
 
 mod choice;

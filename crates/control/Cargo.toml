@@ -9,17 +9,19 @@ keywords = ["cli", "color", "no-std", "terminal", "ansi"]
 edition = "2018"
 
 [features]
-auto = ["api", "interactive", "clicolor", "no_color", "term", "windows"]
+auto = ["interactive", "clicolor", "no_color", "term", "windows"]
 std = []
-api = ["std", "bitflags"]
-interactive = ["api", "atty"]
-clicolor = ["api", "concolor-query"]
-no_color = ["api", "concolor-query"]
-term = ["api", "concolor-query"]
-windows = ["api", "concolor-query/windows"]
+core = ["std", "bitflags"]
+# Cross-crate API control is not guaranteed until our 1.0 release
+api_unstable = ["core"]
+interactive = ["core", "atty"]
+clicolor = ["core", "concolor-query"]
+no_color = ["core", "concolor-query"]
+term = ["core", "concolor-query"]
+windows = ["core", "concolor-query/windows"]
 
 [package.metadata.docs.rs]
-features = ["auto"]
+features = ["auto", "api_unstable"]
 
 [dependencies]
 concolor-query = { version = "^0.0.3", path = "../query", optional = true }

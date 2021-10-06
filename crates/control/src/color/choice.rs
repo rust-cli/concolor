@@ -15,6 +15,7 @@ impl AtomicChoice {
         Self::to_choice(choice).unwrap()
     }
 
+    #[cfg(feature = "api_unstable")]
     pub(crate) fn set(&self, choice: crate::ColorChoice) {
         let choice = Self::from_choice(choice);
         self.0.store(choice, Ordering::SeqCst);
