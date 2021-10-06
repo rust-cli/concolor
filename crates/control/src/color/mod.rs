@@ -76,21 +76,28 @@ pub fn set(choice: crate::ColorChoice) {
 fn init() -> usize {
     let mut flags = InternalFlags::empty();
 
-    if cfg!(feature = "clicolor") {
+    #[cfg(feature = "clicolor")]
+    {
         if concolor_query::clicolor() {
             flags |= InternalFlags::CLICOLOR;
         }
         if concolor_query::clicolor_force() {
             flags |= InternalFlags::CLICOLOR_FORCE;
         }
-    } else {
+    }
+    #[cfg(not(feature = "clicolor"))]
+    {
         // Spec defaults to enabled
         flags |= InternalFlags::CLICOLOR;
     }
-    if cfg!(feature = "no_color") && concolor_query::no_color() {
+
+    #[cfg(feature = "no_color")]
+    if concolor_query::no_color() {
         flags |= InternalFlags::NO_COLOR;
     }
-    if cfg!(feature = "term") {
+
+    #[cfg(feature = "term")]
+    {
         if concolor_query::term_supports_color() {
             flags |= InternalFlags::TERM_SUPPORT;
         }
@@ -101,7 +108,9 @@ fn init() -> usize {
             flags |= InternalFlags::TRUECOLOR;
         }
     }
-    if cfg!(feature = "interactive") {
+
+    #[cfg(feature = "interactive")]
+    {
         if atty::is(atty::Stream::Stdout) {
             flags |= InternalFlags::TTY_STDOUT;
         }
@@ -109,7 +118,9 @@ fn init() -> usize {
             flags |= InternalFlags::TTY_STDERR;
         }
     }
-    if cfg!(feature = "windows") && concolor_query::windows::enable_ansi_colors().unwrap_or(false) {
+
+    #[cfg(feature = "windows")]
+    if concolor_query::windows::enable_ansi_colors().unwrap_or(false) {
         flags |= InternalFlags::ANSI_WIN;
     }
 
