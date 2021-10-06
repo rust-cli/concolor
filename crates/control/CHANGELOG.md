@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+#### Fixes
+
+- `set` is now behind the `api_unstable` feature to ensure people are aware we
+  are not supporting cross-crate API control until 1.0
+
 ## [0.0.6] - 2021-08-04
 
 ## [0.0.5] - 2021-08-04
