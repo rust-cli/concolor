@@ -88,14 +88,14 @@
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
-#[cfg(feature = "api")]
+#[cfg(feature = "core")]
 mod color;
-#[cfg(feature = "api")]
+#[cfg(feature = "core")]
 pub use color::*;
 
-#[cfg(not(feature = "api"))]
+#[cfg(not(feature = "core"))]
 mod no_color;
-#[cfg(not(feature = "api"))]
+#[cfg(not(feature = "core"))]
 pub use no_color::*;
 
 mod choice;
