@@ -11,6 +11,6 @@ publish = false
 
 [dependencies]
 structopt = "0.3"
-concolor-clap = { version = "^0.0.5", path = "../clap" }
+concolor-clap = { version = "^0.0.5", path = "../clap", features = ["api_unstable"] }
 # Only pulled in to dump data
 concolor-control = { version = "^0.0.6", path = "../control", features = ["auto"] }

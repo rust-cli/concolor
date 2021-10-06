@@ -36,6 +36,7 @@ pub struct Color {
 
 impl Color {
     /// Set the user selection on `concolor_control`
+    #[cfg(feature = "api_unstable")]
     pub fn apply(&self) {
         concolor_control::set(self.to_control());
     }
