@@ -10,7 +10,7 @@ edition = "2018"
 publish = false
 
 [dependencies]
-structopt = "0.3"
+clap = { version = "3.0", features = ["std", "derive"] }
 concolor-clap = { version = "^0.0.6", path = "../clap", features = ["api_unstable"] }
 # Only pulled in to dump data
 concolor-control = { version = "^0.0.7", path = "../control", features = ["auto"] }
