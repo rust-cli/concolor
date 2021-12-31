@@ -1,6 +1,6 @@
 [package]
 name = "concolor-clap"
-version = "0.0.6"
+version = "0.0.7"
 license = "MIT OR Apache-2.0"
 description = "Clap mixin to control console colors"
 repository = "https://github.com/rust-cli/concolor"
