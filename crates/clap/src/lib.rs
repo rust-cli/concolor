@@ -4,10 +4,10 @@
 //!
 //! ```rust
 //! // ...
-//! #[derive(Debug, structopt::StructOpt)]
-//! #[structopt(setting = concolor_clap::color_choice())]
+//! #[derive(Debug, clap::Parser)]
+//! #[clap(color = concolor_clap::color_choice())]
 //! struct Cli {
-//!     #[structopt(flatten)]
+//!     #[clap(flatten)]
 //!     color: concolor_clap::Color,
 //! }
 //! ```
@@ -17,20 +17,20 @@
 //! - `auto` (default): Automatically detect color support
 
 /// Get color choice for initializing the `clap::App`
-pub fn color_choice() -> structopt::clap::AppSettings {
+pub fn color_choice() -> clap::ColorChoice {
     let color = concolor_control::get(concolor_control::Stream::Either);
     if color.ansi_color() {
-        structopt::clap::AppSettings::ColorAlways
+        clap::ColorChoice::Always
     } else {
-        structopt::clap::AppSettings::ColorNever
+        clap::ColorChoice::Never
     }
 }
 
 /// Mixin a clap argument for colored output selection
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq, structopt::StructOpt)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq, clap::Args)]
 pub struct Color {
     /// Controls when to use color.
-    #[structopt(long, default_value = "auto", value_name = "WHEN")]
+    #[clap(long, default_value = "auto", value_name = "WHEN")]
     pub color: ColorChoice,
 }
 
@@ -107,3 +107,20 @@ impl std::str::FromStr for ColorChoice {
 const AUTO: &str = "auto";
 const ALWAYS: &str = "always";
 const NEVER: &str = "never";
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn verify_app() {
+        #[derive(Debug, clap::Parser)]
+        struct Cli {
+            #[clap(flatten)]
+            color: Color,
+        }
+
+        use clap::IntoApp;
+        Cli::into_app().debug_assert()
+    }
+}

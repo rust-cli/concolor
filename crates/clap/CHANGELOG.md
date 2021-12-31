@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Upgraded to clap3
+
 ## [0.0.6] - 2021-10-06
 
-#### Fixes
+### Fixes
 
 - `apply` is now behind the `api_unstable` feature to ensure people are aware we
   are not supporting cross-crate API control until 1.0

@@ -17,10 +17,9 @@ include = [
 
 [features]
 default = ["auto"]
-auto = ["concolor-control/auto", "structopt/color"]
+auto = ["concolor-control/auto", "clap/color"]
 api_unstable = ["concolor-control/api_unstable"]
 
 [dependencies]
-# Let the application decide what features to enable
-structopt = { version = "0.3", default-features = false }
 concolor-control = { version = "^0.0.7", path = "../control", default-features = false }
+clap = { version = "3.0", default-features = false, features = ["std", "derive"] }

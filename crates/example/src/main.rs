@@ -1,15 +1,14 @@
-use structopt::StructOpt;
+use clap::Parser;
 
-#[derive(StructOpt, Debug)]
-#[structopt(setting = concolor_clap::color_choice())]
-#[structopt(setting = structopt::clap::AppSettings::ColoredHelp)]
+#[derive(Parser, Debug)]
+#[clap(color = concolor_clap::color_choice())]
 struct Args {
-    #[structopt(flatten)]
+    #[clap(flatten)]
     color: concolor_clap::Color,
 }
 
 fn main() {
-    let args = Args::from_args();
+    let args = Args::parse();
     dbg!(&args);
     args.color.apply();
     dbg!(concolor_control::get(concolor_control::Stream::Stdout));
