@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.0.8] - 2022-01-11
+
 #### Fixes
 
 - Shorten the name
@@ -27,7 +29,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.3] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-v0.0.7...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-v0.0.8...HEAD
+[0.0.8]: https://github.com/epage/git-stack/compare/concolor-v0.0.7...concolor-v0.0.8
 [0.0.7]: https://github.com/epage/git-stack/compare/concolor-v0.0.6...concolor-v0.0.7
 [0.0.6]: https://github.com/epage/git-stack/compare/concolor-v0.0.5...concolor-v0.0.6
 [0.0.5]: https://github.com/epage/git-stack/compare/concolor-v0.0.4...concolor-v0.0.5

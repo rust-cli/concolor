@@ -11,6 +11,6 @@ publish = false
 
 [dependencies]
 clap = { version = "3.0", features = ["std", "derive"] }
-concolor-clap = { version = "^0.0.7", path = "../clap", features = ["api_unstable"] }
+concolor-clap = { version = "^0.0.8", path = "../clap", features = ["api_unstable"] }
 # Only pulled in to dump data
-concolor = { version = "^0.0.7", path = "../concolor", features = ["auto"] }
+concolor = { version = "^0.0.8", path = "../concolor", features = ["auto"] }

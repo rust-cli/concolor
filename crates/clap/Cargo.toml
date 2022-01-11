@@ -1,6 +1,6 @@
 [package]
 name = "concolor-clap"
-version = "0.0.7"
+version = "0.0.8"
 license = "MIT OR Apache-2.0"
 description = "Clap mixin to control console colors"
 repository = "https://github.com/rust-cli/concolor"
@@ -21,5 +21,5 @@ auto = ["concolor/auto", "clap/color"]
 api_unstable = ["concolor/api_unstable"]
 
 [dependencies]
-concolor = { version = "^0.0.7", path = "../concolor", default-features = false }
+concolor = { version = "^0.0.8", path = "../concolor", default-features = false }
 clap = { version = "3.0", default-features = false, features = ["std", "derive"] }
