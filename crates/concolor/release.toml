@@ -1,6 +1,6 @@
 enable-features = ["auto"]
 pre-release-replacements = [
-  {file="src/lib.rs", search="concolor-control = \\{ version = \".+?\"", replace="concolor-control = { version = \"{{version}}\"", exactly=3},
+  {file="src/lib.rs", search="concolor = \\{ version = \".+?\"", replace="concolor = { version = \"{{version}}\"", exactly=3},
   {file="CHANGELOG.md", search="Unreleased", replace="{{version}}", min=1},
   {file="CHANGELOG.md", search="\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly=1},
   {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}", min=1},

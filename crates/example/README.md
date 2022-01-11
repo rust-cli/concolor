@@ -2,7 +2,7 @@
 
 > **Example CLI and debug tool**
 
-See how to integrate  [`concolor-control`](./control/README.md) and [`concolor-clap`](./clap/README.md) into an application.
+See how to integrate  [`concolor`](./control/README.md) and [`concolor-clap`](./clap/README.md) into an application.
 
 You can then also use this to see how it behaves under various conditions.
 
@@ -13,17 +13,17 @@ $ concolor-example
         color: Auto,
     },
 }
-[crates/example/src/main.rs:15] concolor_control::get(concolor_control::Stream::Stdout) = Color {
+[crates/example/src/main.rs:15] concolor::get(concolor::Stream::Stdout) = Color {
     flags: CLICOLOR | TERM_SUPPORT | ANSI_SUPPORT | TTY_STDOUT | TTY_STDERR | TTY_ANY,
     choice: Auto,
     stream: Stdout,
 }
-[crates/example/src/main.rs:16] concolor_control::get(concolor_control::Stream::Stderr) = Color {
+[crates/example/src/main.rs:16] concolor::get(concolor::Stream::Stderr) = Color {
     flags: CLICOLOR | TERM_SUPPORT | ANSI_SUPPORT | TTY_STDOUT | TTY_STDERR | TTY_ANY,
     choice: Auto,
     stream: Stderr,
 }
-[crates/example/src/main.rs:17] concolor_control::get(concolor_control::Stream::Either) = Color {
+[crates/example/src/main.rs:17] concolor::get(concolor::Stream::Either) = Color {
     flags: CLICOLOR | TERM_SUPPORT | ANSI_SUPPORT | TTY_STDOUT | TTY_STDERR | TTY_ANY,
     choice: Auto,
     stream: Either,

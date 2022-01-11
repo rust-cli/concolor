@@ -1,10 +1,10 @@
-# concolor-control
+# concolor
 
 > **bin/lib API for managing terminal styling**
 
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
-![License](https://img.shields.io/crates/l/concolor-control.svg)
-[![Crates Status](https://img.shields.io/crates/v/concolor-control.svg)](https://crates.io/crates/concolor-control)
+![License](https://img.shields.io/crates/l/concolor.svg)
+[![Crates Status](https://img.shields.io/crates/v/concolor.svg)](https://crates.io/crates/concolor)
 
 Features
 - Detects interactive `stdout` / `stderr`
@@ -39,6 +39,6 @@ Prior art for global colors control:
 
 Dual-licensed under [MIT](../../LICENSE-MIT) or [Apache 2.0](../../LICENSE-APACHE)
 
-[Documentation]: https://docs.rs/concolor-control
+[Documentation]: https://docs.rs/concolor
 [CLICOLOR]: https://bixense.com/clicolors/
 [NO_COLOR]: https://no-color.org/
