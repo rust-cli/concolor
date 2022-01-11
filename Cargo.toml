@@ -1,7 +1,4 @@
 [workspace]
 members = [
-    "crates/clap",
-    "crates/control",
-    "crates/query",
-    "crates/example",
+    "crates/*",
 ]

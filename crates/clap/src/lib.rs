@@ -18,7 +18,7 @@
 
 /// Get color choice for initializing the `clap::App`
 pub fn color_choice() -> clap::ColorChoice {
-    let color = concolor_control::get(concolor_control::Stream::Either);
+    let color = concolor::get(concolor::Stream::Either);
     if color.ansi_color() {
         clap::ColorChoice::Always
     } else {
@@ -35,18 +35,18 @@ pub struct Color {
 }
 
 impl Color {
-    /// Set the user selection on `concolor_control`
+    /// Set the user selection on `concolor`
     #[cfg(feature = "api_unstable")]
     pub fn apply(&self) {
-        concolor_control::set(self.to_control());
+        concolor::set(self.to_control());
     }
 
     /// Get the user's selection
-    pub fn to_control(&self) -> concolor_control::ColorChoice {
+    pub fn to_control(&self) -> concolor::ColorChoice {
         match self.color {
-            ColorChoice::Auto => concolor_control::ColorChoice::Auto,
-            ColorChoice::Always => concolor_control::ColorChoice::Always,
-            ColorChoice::Never => concolor_control::ColorChoice::Never,
+            ColorChoice::Auto => concolor::ColorChoice::Auto,
+            ColorChoice::Always => concolor::ColorChoice::Always,
+            ColorChoice::Never => concolor::ColorChoice::Never,
         }
     }
 }

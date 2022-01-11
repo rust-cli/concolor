@@ -11,7 +11,7 @@ fn main() {
     let args = Args::parse();
     dbg!(&args);
     args.color.apply();
-    dbg!(concolor_control::get(concolor_control::Stream::Stdout));
-    dbg!(concolor_control::get(concolor_control::Stream::Stderr));
-    dbg!(concolor_control::get(concolor_control::Stream::Either));
+    dbg!(concolor::get(concolor::Stream::Stdout));
+    dbg!(concolor::get(concolor::Stream::Stderr));
+    dbg!(concolor::get(concolor::Stream::Either));
 }

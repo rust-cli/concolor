@@ -11,7 +11,7 @@
 //!
 //! Like with logging, your terminal's capabilities and how to treat it is a behavior that cuts
 //! across your application.  So to make things more consistent and easier to control,
-//! `concolor-control` introduces shared detection logic that all crates can call into to get
+//! `concolor` introduces shared detection logic that all crates can call into to get
 //! consistent behavior.  The application author can then choose what feature flags are enabled to
 //! decide on what the end-user experience should be.
 //!
@@ -19,7 +19,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! concolor-control = { version = "0.0.7", features = "color" }
+//! concolor = { version = "0.0.7", features = "color" }
 //! ```
 //! Notes:
 //! - With the
@@ -29,8 +29,8 @@
 //!
 //! If you are providing a command line option for controlling color, just call
 //! ```rust
-//! let when = concolor_control::ColorChoice::Always;
-//! concolor_control::set(when);
+//! let when = concolor::ColorChoice::Always;
+//! concolor::set(when);
 //! ```
 //!
 //! See also [`concolor-clap`](https://docs.rs/concolor-clap)
@@ -38,20 +38,20 @@
 //! # `[lib]`s
 //!
 //! The `[[bin]]` is responsible for defining the policy of how colors are determined, so to depend
-//! on `concolor-control`:
+//! on `concolor`:
 //! ```toml
 //! [dependencies]
-//! concolor-control = { version = "0.0.7", default-features = false }
+//! concolor = { version = "0.0.7", default-features = false }
 //! ```
 //!
 //! At times, you might want to provide a convenience feature for color support, so you could also:
 //! ```toml
 //! [features]
 //! default = ["color"]
-//! color = "concolor-control/auto"
+//! color = "concolor/auto"
 //!
 //! [dependencies]
-//! concolor-control = { version = "0.0.7", optional = True}
+//! concolor = { version = "0.0.7", optional = True}
 //! ```
 //! Notes:
 //! - Your choice on whether to make this default or not
@@ -60,7 +60,7 @@
 //!
 //! Then just ask as needed:
 //! ```rust
-//! let stdout_support = concolor_control::get(concolor_control::Stream::Stdout);
+//! let stdout_support = concolor::get(concolor::Stream::Stdout);
 //! if stdout_support.ansi_color() {
 //!     // Output ANSI escape sequences
 //!     if stdout_support.truecolor() {

@@ -1,5 +1,5 @@
 [package]
-name = "concolor-control"
+name = "concolor"
 version = "0.0.7"
 license = "MIT OR Apache-2.0"
 description = "Control console coloring across all dependencies"
