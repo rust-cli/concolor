@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Changed functions on `ColorChoice`
+
 ## [0.0.8] - 2022-01-11
 
 ## [0.0.7] - 2021-12-31
