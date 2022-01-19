@@ -59,6 +59,16 @@ pub enum ColorChoice {
     Never,
 }
 
+impl ColorChoice {
+    /// Report all `possible_values`
+    pub fn possible_values() -> impl Iterator<Item = clap::PossibleValue<'static>> {
+        use clap::ArgEnum;
+        Self::value_variants()
+            .iter()
+            .filter_map(clap::ArgEnum::to_possible_value)
+    }
+}
+
 impl Default for ColorChoice {
     fn default() -> Self {
         Self::Auto
