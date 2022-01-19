@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.0.9] - 2022-01-19
+
 ### Breaking Changes
 
 - Changed functions on `ColorChoice`
@@ -35,7 +37,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.2] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.8...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.9...HEAD
+[0.0.9]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.8...concolor-clap-v0.0.9
 [0.0.8]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.7...concolor-clap-v0.0.8
 [0.0.7]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.6...concolor-clap-v0.0.7
 [0.0.6]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.5...concolor-clap-v0.0.6
