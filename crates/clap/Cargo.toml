@@ -22,4 +22,4 @@ api_unstable = ["concolor/api_unstable"]
 
 [dependencies]
 concolor = { version = "^0.0.8", path = "../concolor", default-features = false }
-clap = { version = "3.0", default-features = false, features = ["std", "derive"] }
+clap = { version = "3.0.10", default-features = false, features = ["std", "derive"] }

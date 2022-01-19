@@ -30,7 +30,7 @@ pub fn color_choice() -> clap::ColorChoice {
 #[derive(Copy, Clone, Default, Debug, PartialEq, Eq, clap::Args)]
 pub struct Color {
     /// Controls when to use color.
-    #[clap(long, default_value = "auto", value_name = "WHEN")]
+    #[clap(long, default_value_t = ColorChoice::Auto, value_name = "WHEN", arg_enum)]
     pub color: ColorChoice,
 }
 
@@ -52,31 +52,11 @@ impl Color {
 }
 
 /// Argument value for when to color output
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, clap::ArgEnum)]
 pub enum ColorChoice {
     Auto,
     Always,
     Never,
-}
-
-impl ColorChoice {
-    /// All color choices
-    pub const fn choices() -> &'static [Self] {
-        &[ColorChoice::Auto, ColorChoice::Always, ColorChoice::Never]
-    }
-
-    /// All color choice argument values
-    pub const fn values() -> &'static [&'static str] {
-        &[AUTO, ALWAYS, NEVER]
-    }
-
-    pub const fn value(self) -> &'static str {
-        match self {
-            Self::Auto => AUTO,
-            Self::Always => ALWAYS,
-            Self::Never => NEVER,
-        }
-    }
 }
 
 impl Default for ColorChoice {
@@ -85,9 +65,13 @@ impl Default for ColorChoice {
     }
 }
 
-impl core::fmt::Display for ColorChoice {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        self.value().fmt(f)
+impl std::fmt::Display for ColorChoice {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        use clap::ArgEnum;
+        self.to_possible_value()
+            .expect("no values are skipped")
+            .get_name()
+            .fmt(f)
     }
 }
 
