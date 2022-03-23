@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- The color argument is now global
+
 ## [0.0.9] - 2022-01-19
 
 ### Breaking Changes
