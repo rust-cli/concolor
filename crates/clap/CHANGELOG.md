@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.0.10] - 2022-03-23
+
 ### Breaking Changes
 
 - The color argument is now global
@@ -41,7 +43,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.2] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.9...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.10...HEAD
+[0.0.10]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.9...concolor-clap-v0.0.10
 [0.0.9]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.8...concolor-clap-v0.0.9
 [0.0.8]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.7...concolor-clap-v0.0.8
 [0.0.7]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.6...concolor-clap-v0.0.7
