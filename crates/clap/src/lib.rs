@@ -30,7 +30,7 @@ pub fn color_choice() -> clap::ColorChoice {
 #[derive(Copy, Clone, Default, Debug, PartialEq, Eq, clap::Args)]
 pub struct Color {
     /// Controls when to use color.
-    #[clap(long, default_value_t = ColorChoice::Auto, value_name = "WHEN", arg_enum)]
+    #[clap(long, default_value_t = ColorChoice::Auto, value_name = "WHEN", arg_enum, global = true)]
     pub color: ColorChoice,
 }
 
