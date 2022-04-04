@@ -67,8 +67,7 @@ mod test {
         let actual: Vec<_> = values
             .iter()
             .cloned()
-            .map(AtomicChoice::to_choice)
-            .flatten()
+            .filter_map(AtomicChoice::to_choice)
             .collect();
         assert_eq!(expected, actual);
     }

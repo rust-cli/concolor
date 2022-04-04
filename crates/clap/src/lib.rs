@@ -114,7 +114,7 @@ mod test {
             color: Color,
         }
 
-        use clap::IntoApp;
-        Cli::into_app().debug_assert()
+        use clap::CommandFactory;
+        Cli::command().debug_assert()
     }
 }
