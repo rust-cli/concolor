@@ -30,6 +30,7 @@
 //! If you are providing a command line option for controlling color, just call
 //! ```rust
 //! let when = concolor::ColorChoice::Always;
+//! #[cfg(feature = "api_unstable")]
 //! concolor::set(when);
 //! ```
 //!
