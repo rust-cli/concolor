@@ -103,7 +103,7 @@ pub fn term_supports_ansi_color() -> bool {
 ///
 /// [COLORTERM]: https://github.com/termstandard/colors
 pub fn truecolor() -> bool {
-    let value = std::env::var_os("COLORTERM ");
+    let value = std::env::var_os("COLORTERM");
     let value = value.as_deref().unwrap_or_default();
     value == "truecolor" || value == "24bit"
 }
