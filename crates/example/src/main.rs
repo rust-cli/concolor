@@ -1,9 +1,9 @@
 use clap::Parser;
 
 #[derive(Parser, Debug)]
-#[clap(color = concolor_clap::color_choice())]
+#[command(color = concolor_clap::color_choice())]
 struct Args {
-    #[clap(flatten)]
+    #[command(flatten)]
     color: concolor_clap::Color,
 }
 

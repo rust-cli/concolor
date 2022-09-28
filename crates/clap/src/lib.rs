@@ -7,7 +7,7 @@
 //! #[derive(Debug, clap::Parser)]
 //! #[clap(color = concolor_clap::color_choice())]
 //! struct Cli {
-//!     #[clap(flatten)]
+//!     #[command(flatten)]
 //!     color: concolor_clap::Color,
 //! }
 //! ```
@@ -30,7 +30,7 @@ pub fn color_choice() -> clap::ColorChoice {
 #[derive(Copy, Clone, Default, Debug, PartialEq, Eq, clap::Args)]
 pub struct Color {
     /// Controls when to use color.
-    #[clap(long, default_value_t = ColorChoice::Auto, value_name = "WHEN", arg_enum, global = true)]
+    #[arg(long, default_value_t = ColorChoice::Auto, value_name = "WHEN", value_enum, global = true)]
     pub color: ColorChoice,
 }
 
@@ -52,7 +52,7 @@ impl Color {
 }
 
 /// Argument value for when to color output
-#[derive(Copy, Clone, Debug, PartialEq, Eq, clap::ArgEnum)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, clap::ValueEnum)]
 pub enum ColorChoice {
     Auto,
     Always,
@@ -61,11 +61,11 @@ pub enum ColorChoice {
 
 impl ColorChoice {
     /// Report all `possible_values`
-    pub fn possible_values() -> impl Iterator<Item = clap::PossibleValue<'static>> {
-        use clap::ArgEnum;
+    pub fn possible_values() -> impl Iterator<Item = clap::builder::PossibleValue> {
+        use clap::ValueEnum;
         Self::value_variants()
             .iter()
-            .filter_map(clap::ArgEnum::to_possible_value)
+            .filter_map(clap::ValueEnum::to_possible_value)
     }
 }
 
@@ -77,7 +77,7 @@ impl Default for ColorChoice {
 
 impl std::fmt::Display for ColorChoice {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        use clap::ArgEnum;
+        use clap::ValueEnum;
         self.to_possible_value()
             .expect("no values are skipped")
             .get_name()

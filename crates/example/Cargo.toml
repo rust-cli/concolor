@@ -11,7 +11,7 @@ rust-version = "1.60.0"  # MSRV
 publish = false
 
 [dependencies]
-clap = { version = "3.0", features = ["std", "derive"] }
+clap = { version = "4.0.0", features = ["std", "derive"] }
 concolor-clap = { version = "^0.0.10", path = "../clap", features = ["api_unstable"] }
 # Only pulled in to dump data
 concolor = { version = "^0.0.8", path = "../concolor", features = ["auto"] }
