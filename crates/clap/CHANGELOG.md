@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.0.11] - 2022-09-28
+
 ### Breaking Changes
 
 - Upgraded to clap v4
@@ -51,7 +53,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.2] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.10...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.11...HEAD
+[0.0.11]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.10...concolor-clap-v0.0.11
 [0.0.10]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.9...concolor-clap-v0.0.10
 [0.0.9]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.8...concolor-clap-v0.0.9
 [0.0.8]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.7...concolor-clap-v0.0.8
