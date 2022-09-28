@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Upgraded to clap v4
+
+### Compatibility
+
+- Raised MSRV to 1.60.0
+
 ## [0.0.10] - 2022-03-23
 
 ### Breaking Changes
