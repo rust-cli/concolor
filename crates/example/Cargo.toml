@@ -14,4 +14,4 @@ publish = false
 clap = { version = "4.0.0", features = ["std", "derive"] }
 concolor-clap = { version = "^0.0.11", path = "../clap", features = ["api_unstable"] }
 # Only pulled in to dump data
-concolor = { version = "^0.0.8", path = "../concolor", features = ["auto"] }
+concolor = { version = "^0.0.9", path = "../concolor", features = ["auto"] }
