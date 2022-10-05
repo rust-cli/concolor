@@ -28,6 +28,7 @@ pub fn color_choice() -> clap::ColorChoice {
 
 /// Mixin a clap argument for colored output selection
 #[derive(Copy, Clone, Default, Debug, PartialEq, Eq, clap::Args)]
+#[command(about = None, long_about = None)]
 pub struct Color {
     /// Controls when to use color.
     #[arg(long, default_value_t = ColorChoice::Auto, value_name = "WHEN", value_enum, global = true)]
