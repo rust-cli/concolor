@@ -1,6 +1,6 @@
 [package]
 name = "concolor"
-version = "0.0.10"
+version = "0.0.11"
 license = "MIT OR Apache-2.0"
 description = "Control console coloring across all dependencies"
 repository = "https://github.com/rust-cli/concolor"
