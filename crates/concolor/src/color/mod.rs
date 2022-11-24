@@ -111,10 +111,12 @@ fn init() -> usize {
 
     #[cfg(feature = "interactive")]
     {
-        if atty::is(atty::Stream::Stdout) {
+        use is_terminal::IsTerminal;
+        use std::io::{stderr, stdout};
+        if stdout().is_terminal() {
             flags |= InternalFlags::TTY_STDOUT;
         }
-        if atty::is(atty::Stream::Stderr) {
+        if stderr().is_terminal() {
             flags |= InternalFlags::TTY_STDERR;
         }
     }
