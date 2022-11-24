@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- Resolve soundness issue by switching from `atty` to `is-terminal`
+
 ## [0.0.9] - 2022-10-05
 
 ## [0.0.8] - 2022-01-11
