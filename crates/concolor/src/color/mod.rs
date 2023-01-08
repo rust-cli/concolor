@@ -108,6 +108,11 @@ fn init() -> usize {
             flags |= InternalFlags::TRUECOLOR;
         }
     }
+    #[cfg(not(feature = "term"))]
+    {
+        // Default to assuming the terminal supports color (or the user doesn't care)
+        flags |= InternalFlags::TERM_SUPPORT;
+    }
 
     #[cfg(feature = "interactive")]
     {
@@ -120,10 +125,22 @@ fn init() -> usize {
             flags |= InternalFlags::TTY_STDERR;
         }
     }
+    #[cfg(not(feature = "interactive"))]
+    {
+        // Default to assuming the stream is interactive (or the user doesn't care)
+        flags |= InternalFlags::TTY_STDOUT;
+        flags |= InternalFlags::TTY_STDERR;
+    }
 
     #[cfg(feature = "windows")]
     if concolor_query::windows::enable_ansi_colors().unwrap_or(false) {
         flags |= InternalFlags::ANSI_WIN;
+    }
+
+    #[cfg(not(any(feature = "term", feature = "windows")))]
+    {
+        // Default to assuming the terminal supports ANSI (or the user doesn't care)
+        flags |= InternalFlags::ANSI_SUPPORT;
     }
 
     flags.bits()
