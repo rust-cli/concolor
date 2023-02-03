@@ -94,7 +94,7 @@ impl std::str::FromStr for ColorChoice {
             AUTO => Ok(Self::Auto),
             ALWAYS => Ok(Self::Always),
             NEVER => Ok(Self::Never),
-            other => Err(format!("Unknown color choice '{}'", other)),
+            other => Err(format!("Unknown color choice '{other}'")),
         }
     }
 }
