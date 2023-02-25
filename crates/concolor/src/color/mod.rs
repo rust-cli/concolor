@@ -108,6 +108,15 @@ fn init() -> usize {
             flags |= InternalFlags::TRUECOLOR;
         }
     }
+    #[cfg(not(feature = "term"))]
+    {
+        // Don't block color on lack of `term` support, acting as if this field doesn't exist
+        flags |= InternalFlags::TERM_SUPPORT;
+        if cfg!(not(windows)) {
+            // Limit to non-windows platforms as windows natively support wincon instead of ANSI
+            flags |= InternalFlags::ANSI_SUPPORT;
+        }
+    }
 
     #[cfg(feature = "interactive")]
     {
@@ -120,7 +129,15 @@ fn init() -> usize {
             flags |= InternalFlags::TTY_STDERR;
         }
     }
+    #[cfg(not(feature = "interactive"))]
+    {
+        // Don't block color on lack of `interactive` support, acting as if these fields doesn't
+        // exist
+        flags |= InternalFlags::TTY_STDOUT;
+        flags |= InternalFlags::TTY_STDERR;
+    }
 
+    // No fallback when disabled since something has to enable ANSI support on Windows
     #[cfg(feature = "windows")]
     if concolor_query::windows::enable_ansi_colors().unwrap_or(false) {
         flags |= InternalFlags::ANSI_WIN;
