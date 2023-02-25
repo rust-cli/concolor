@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.0.12] - 2023-02-25
+
 ### Fixes
 
 - When query features are disabled, act as if they don't exist rather than turned off
@@ -41,7 +43,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.3] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-v0.0.11...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-v0.0.12...HEAD
+[0.0.12]: https://github.com/epage/git-stack/compare/concolor-v0.0.11...concolor-v0.0.12
 [0.0.11]: https://github.com/epage/git-stack/compare/concolor-v0.0.9...concolor-v0.0.11
 [0.0.9]: https://github.com/epage/git-stack/compare/concolor-v0.0.8...concolor-v0.0.9
 [0.0.8]: https://github.com/epage/git-stack/compare/concolor-v0.0.7...concolor-v0.0.8
