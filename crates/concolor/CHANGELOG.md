@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- When query features are disabled, act as if they don't exist rather than turned off
+
 ## [0.0.11] - 2022-11-24
 
 ### Fixes
