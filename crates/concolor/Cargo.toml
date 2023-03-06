@@ -26,7 +26,7 @@ interactive = ["core", "dep:is-terminal"]
 clicolor = ["core", "concolor-query"]
 no_color = ["core", "concolor-query"]
 term = ["core", "concolor-query"]
-windows = ["core", "concolor-query/windows"]
+windows = ["core", "concolor-query"]
 
 [package.metadata.docs.rs]
 features = ["auto", "api_unstable"]
