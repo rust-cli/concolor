@@ -89,6 +89,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "concolor-override"
+version = "1.0.0"
+
+[[package]]
 name = "concolor-query"
 version = "0.1.0"
 dependencies = [
