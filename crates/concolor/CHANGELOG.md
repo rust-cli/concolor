@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Features
+
+- Stablize `api_unstable` as `api`
+
+### Fixes
+
+- Hide implicit features
+
 ## [0.0.12] - 2023-02-25
 
 ### Fixes

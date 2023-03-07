@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking changes
+
+- Removed `windows` feature flag, making it always enabled
+
+### Internal
+
+- Switched from custom definition of Windows types to `windows-sys`
+
 ## [0.1.0] - 2022-10-05
 
 ## [0.0.5] - 2022-01-11
