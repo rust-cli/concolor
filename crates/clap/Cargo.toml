@@ -25,5 +25,5 @@ auto = ["concolor/auto", "clap/color"]
 api = ["concolor/api"]
 
 [dependencies]
-concolor = { version = "^0.0.12", path = "../concolor", default-features = false }
+concolor = { version = "^0.1.0", path = "../concolor", default-features = false }
 clap = { version = "4.0.0", default-features = false, features = ["std", "derive"] }
