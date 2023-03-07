@@ -16,22 +16,22 @@ include = [
   "examples/**/*"
 ]
 
+[package.metadata.docs.rs]
+features = ["auto", "api"]
+
 [features]
 auto = ["interactive", "clicolor", "no_color", "term", "windows"]
 std = []
 core = ["std", "dep:bitflags"]
-# Cross-crate API control is not guaranteed until our 1.0 release
-api_unstable = ["core"]
+api = ["core", "dep:concolor-override"]
 interactive = ["core", "dep:is-terminal"]
 clicolor = ["core", "dep:concolor-query"]
 no_color = ["core", "dep:concolor-query"]
 term = ["core", "dep:concolor-query"]
 windows = ["core", "dep:concolor-query"]
 
-[package.metadata.docs.rs]
-features = ["auto", "api_unstable"]
-
 [dependencies]
-concolor-query = { version = "^0.1.0", path = "../query", optional = true }
+concolor-override = { version = "1.0.0", path = "../override", optional = true }
+concolor-query = { version = "0.1.0", path = "../query", optional = true }
 bitflags = { version = "1", optional = true }
 is-terminal = { version = "0.4", optional = true }

@@ -1,7 +1,4 @@
-mod choice;
 mod lazy;
-
-use choice::AtomicChoice;
 
 /// Current color state for a [`Stream`][crate::Stream]
 ///
@@ -55,22 +52,36 @@ impl Color {
 }
 
 static FLAGS: lazy::Lazy = lazy::Lazy::new();
-static USER: AtomicChoice = AtomicChoice::new();
 
 /// Get the current [`Color`] state for a given [`Stream`][crate::Stream]
 pub fn get(stream: crate::Stream) -> Color {
     let flags = FLAGS.get_or_init(init);
+    #[cfg(feature = "api")]
+    let choice = match concolor_override::get() {
+        concolor_override::ColorChoice::Auto => crate::ColorChoice::Auto,
+        concolor_override::ColorChoice::AlwaysAnsi => crate::ColorChoice::AlwaysAnsi,
+        concolor_override::ColorChoice::Always => crate::ColorChoice::Always,
+        concolor_override::ColorChoice::Never => crate::ColorChoice::Never,
+    };
+    #[cfg(not(feature = "api"))]
+    let choice = crate::ColorChoice::Auto;
     Color {
         flags: InternalFlags::from_bits(flags).unwrap(),
-        choice: USER.get(),
+        choice,
         stream,
     }
 }
 
 /// Override the detected [`ColorChoice`][crate::ColorChoice]
-#[cfg(feature = "api_unstable")]
+#[cfg(feature = "api")]
 pub fn set(choice: crate::ColorChoice) {
-    USER.set(choice)
+    let choice = match choice {
+        crate::ColorChoice::Auto => concolor_override::ColorChoice::Auto,
+        crate::ColorChoice::AlwaysAnsi => concolor_override::ColorChoice::AlwaysAnsi,
+        crate::ColorChoice::Always => concolor_override::ColorChoice::Always,
+        crate::ColorChoice::Never => concolor_override::ColorChoice::Never,
+    };
+    concolor_override::set(choice)
 }
 
 fn init() -> usize {

@@ -67,6 +67,7 @@ name = "concolor"
 version = "0.0.12"
 dependencies = [
  "bitflags",
+ "concolor-override",
  "concolor-query",
  "is-terminal",
 ]
