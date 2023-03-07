@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.1.0] - 2023-03-07
+
 ### Features
 
 - Stablize `api_unstable` as `api`
@@ -63,7 +65,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.2] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.14...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-clap-v0.1.0...HEAD
+[0.1.0]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.14...concolor-clap-v0.1.0
 [0.0.14]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.13...concolor-clap-v0.0.14
 [0.0.13]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.12...concolor-clap-v0.0.13
 [0.0.12]: https://github.com/epage/git-stack/compare/concolor-clap-v0.0.11...concolor-clap-v0.0.12
