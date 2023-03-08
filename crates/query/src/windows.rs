@@ -1,68 +1,55 @@
-// Avoiding `winapi` because of the hassle to workaround wanting a feature to conditionally enable
-// a dependency, depending on the target.
 #[cfg(windows)]
 mod windows_console {
-    use std::os::raw::c_void;
+    use std::os::windows::io::AsHandle;
+    use std::os::windows::io::AsRawHandle;
+    use std::os::windows::io::RawHandle;
 
-    #[allow(non_camel_case_types)]
-    type c_ulong = u32;
-    #[allow(non_camel_case_types)]
-    type c_int = i32;
-    type DWORD = c_ulong;
-    type LPDWORD = *mut DWORD;
-    type HANDLE = *mut c_void;
-    type BOOL = c_int;
+    use windows_sys::Win32::System::Console::CONSOLE_MODE;
+    use windows_sys::Win32::System::Console::ENABLE_VIRTUAL_TERMINAL_PROCESSING;
 
-    const ENABLE_VIRTUAL_TERMINAL_PROCESSING: DWORD = 0x0004;
-    const STD_OUTPUT_HANDLE: DWORD = 0xFFFFFFF5;
-    const STD_ERROR_HANDLE: DWORD = 0xFFFFFFF4;
-    const INVALID_HANDLE_VALUE: HANDLE = -1isize as HANDLE;
-    const FALSE: BOOL = 0;
-    const TRUE: BOOL = 1;
+    fn enable_vt(handle: RawHandle) -> std::io::Result<()> {
+        unsafe {
+            let handle = std::mem::transmute(handle);
+            if handle == 0 {
+                return Err(std::io::Error::new(
+                    std::io::ErrorKind::BrokenPipe,
+                    "console is detached",
+                ));
+            }
 
-    // This is the win32 console API, taken from the 'winapi' crate.
-    extern "system" {
-        fn GetStdHandle(nStdHandle: DWORD) -> HANDLE;
-        fn GetConsoleMode(hConsoleHandle: HANDLE, lpMode: LPDWORD) -> BOOL;
-        fn SetConsoleMode(hConsoleHandle: HANDLE, dwMode: DWORD) -> BOOL;
-    }
+            let mut dwmode: CONSOLE_MODE = 0;
+            if windows_sys::Win32::System::Console::GetConsoleMode(handle, &mut dwmode) == 0 {
+                return Err(std::io::Error::last_os_error());
+            }
 
-    unsafe fn get_handle(handle_num: DWORD) -> Result<HANDLE, ()> {
-        match GetStdHandle(handle_num) {
-            handle if handle == INVALID_HANDLE_VALUE => Err(()),
-            handle => Ok(handle),
+            dwmode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+            if windows_sys::Win32::System::Console::SetConsoleMode(handle, dwmode) == 0 {
+                return Err(std::io::Error::last_os_error());
+            }
+
+            Ok(())
         }
     }
 
-    unsafe fn enable_vt(handle: HANDLE) -> Result<(), ()> {
-        let mut dw_mode: DWORD = 0;
-        if GetConsoleMode(handle, &mut dw_mode) == FALSE {
-            return Err(());
-        }
-
-        dw_mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-        match SetConsoleMode(handle, dw_mode) {
-            result if result == TRUE => Ok(()),
-            _ => Err(()),
-        }
-    }
-
-    unsafe fn enable_ansi_colors_raw() -> Result<bool, ()> {
-        let stdout_handle = get_handle(STD_OUTPUT_HANDLE)?;
-        let stderr_handle = get_handle(STD_ERROR_HANDLE)?;
+    fn enable_ansi_colors_raw() -> std::io::Result<()> {
+        let stdout = std::io::stdout();
+        let stdout_handle = stdout.as_handle();
+        let stdout_handle = stdout_handle.as_raw_handle();
+        let stderr = std::io::stderr();
+        let stderr_handle = stderr.as_handle();
+        let stderr_handle = stderr_handle.as_raw_handle();
 
         enable_vt(stdout_handle)?;
         if stdout_handle != stderr_handle {
             enable_vt(stderr_handle)?;
         }
 
-        Ok(true)
+        Ok(())
     }
 
     #[inline]
     pub fn enable_ansi_colors() -> Option<bool> {
-        let enabled = unsafe { enable_ansi_colors_raw().unwrap_or(false) };
-        Some(enabled)
+        Some(enable_ansi_colors_raw().map(|_| true).unwrap_or(false))
     }
 }
 

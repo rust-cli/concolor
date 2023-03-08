@@ -1,4 +1,3 @@
-#[cfg(feature = "windows")]
 pub mod windows;
 
 /// Check [CLICOLOR] status
