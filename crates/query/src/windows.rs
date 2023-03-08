@@ -55,6 +55,7 @@ mod windows_console {
 
 #[cfg(not(windows))]
 mod windows_console {
+    #[inline]
     pub fn enable_ansi_colors() -> Option<bool> {
         None
     }
