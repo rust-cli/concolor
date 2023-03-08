@@ -1,4 +1,35 @@
-use std::sync::atomic::{AtomicUsize, Ordering};
+//! Global override of color control
+
+#![cfg_attr(not(test), no_std)]
+
+use core::sync::atomic::{AtomicUsize, Ordering};
+
+/// Selection for overriding color output with [`set`][crate::set]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+pub enum ColorChoice {
+    Auto,
+    AlwaysAnsi,
+    Always,
+    Never,
+}
+
+impl Default for ColorChoice {
+    fn default() -> Self {
+        Self::Auto
+    }
+}
+
+/// Get the current [`ColorChoice`] state
+pub fn get() -> ColorChoice {
+    USER.get()
+}
+
+/// Override the detected [`ColorChoice`]
+pub fn set(choice: ColorChoice) {
+    USER.set(choice)
+}
+
+static USER: AtomicChoice = AtomicChoice::new();
 
 #[derive(Debug)]
 pub(crate) struct AtomicChoice(AtomicUsize);
@@ -15,7 +46,6 @@ impl AtomicChoice {
         Self::to_choice(choice).unwrap()
     }
 
-    #[cfg(feature = "api_unstable")]
     pub(crate) fn set(&self, choice: crate::ColorChoice) {
         let choice = Self::from_choice(choice);
         self.0.store(choice, Ordering::SeqCst);
@@ -54,10 +84,10 @@ mod test {
     #[test]
     fn choice_serialization() {
         let expected = vec![
-            crate::ColorChoice::Auto,
-            crate::ColorChoice::AlwaysAnsi,
-            crate::ColorChoice::Always,
-            crate::ColorChoice::Never,
+            ColorChoice::Auto,
+            ColorChoice::AlwaysAnsi,
+            ColorChoice::Always,
+            ColorChoice::Never,
         ];
         let values: Vec<_> = expected
             .iter()

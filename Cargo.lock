@@ -67,6 +67,7 @@ name = "concolor"
 version = "0.0.12"
 dependencies = [
  "bitflags",
+ "concolor-override",
  "concolor-query",
  "is-terminal",
 ]
@@ -87,6 +88,10 @@ dependencies = [
  "concolor",
  "concolor-clap",
 ]
+
+[[package]]
+name = "concolor-override"
+version = "1.0.0"
 
 [[package]]
 name = "concolor-query"

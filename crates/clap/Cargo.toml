@@ -16,10 +16,13 @@ include = [
   "examples/**/*"
 ]
 
+[package.metadata.docs.rs]
+features = ["auto", "api"]
+
 [features]
 default = ["auto"]
 auto = ["concolor/auto", "clap/color"]
-api_unstable = ["concolor/api_unstable"]
+api = ["concolor/api"]
 
 [dependencies]
 concolor = { version = "^0.0.12", path = "../concolor", default-features = false }

@@ -1,0 +1,17 @@
+[package]
+name = "concolor-override"
+version = "1.0.0"
+license = "MIT OR Apache-2.0"
+description = "Global override of color control"
+repository = "https://github.com/rust-cli/concolor"
+categories = ["command-line-interface"]
+keywords = ["cli", "color", "no-std", "terminal", "ansi"]
+edition = "2021"
+rust-version = "1.60.0"  # MSRV
+include = [
+  "src/**/*",
+  "Cargo.toml",
+  "LICENSE*",
+  "README.md",
+  "examples/**/*"
+]
