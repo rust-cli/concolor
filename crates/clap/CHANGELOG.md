@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Features
 
-- Stablize `api_unstable` as `api`
+- Stabilize `api_unstable` as `api`
 
 ## [0.0.14] - 2023-02-25
 
