@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.2.1] - 2023-03-08
+
 ### Performance
 
 - Inline the calls
@@ -32,7 +34,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.2] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-query-v0.2.0...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-query-v0.2.1...HEAD
+[0.2.1]: https://github.com/epage/git-stack/compare/concolor-query-v0.2.0...concolor-query-v0.2.1
 [0.2.0]: https://github.com/epage/git-stack/compare/concolor-query-v0.1.0...concolor-query-v0.2.0
 [0.1.0]: https://github.com/epage/git-stack/compare/concolor-query-v0.0.5...concolor-query-v0.1.0
 [0.0.5]: https://github.com/epage/git-stack/compare/concolor-query-v0.0.4...concolor-query-v0.0.5
