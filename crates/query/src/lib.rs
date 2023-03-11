@@ -10,6 +10,7 @@ pub mod windows;
 /// - [termbg](https://crates.io/crates/termbg) for detecting background color
 ///
 /// [CLICOLOR]: https://bixense.com/clicolors/
+#[inline]
 pub fn clicolor() -> bool {
     let value = std::env::var_os("CLICOLOR");
     value
@@ -23,6 +24,7 @@ pub fn clicolor() -> bool {
 /// ANSI colors should be enabled no matter what.
 ///
 /// [CLICOLOR_FORCE]: https://bixense.com/clicolors/
+#[inline]
 pub fn clicolor_force() -> bool {
     let value = std::env::var_os("CLICOLOR_FORCE");
     value
@@ -39,11 +41,13 @@ pub fn clicolor_force() -> bool {
 /// color.
 ///
 /// [NO_COLOR]: https://no-color.org/
+#[inline]
 pub fn no_color() -> bool {
     std::env::var_os("NO_COLOR").is_some()
 }
 
 /// Check `TERM` for color support
+#[inline]
 #[cfg(not(windows))]
 pub fn term_supports_color() -> bool {
     match std::env::var_os("TERM") {
@@ -60,6 +64,7 @@ pub fn term_supports_color() -> bool {
 }
 
 /// Check `TERM` for color support
+#[inline]
 #[cfg(windows)]
 pub fn term_supports_color() -> bool {
     // On Windows, if TERM isn't set, then we shouldn't automatically
@@ -74,12 +79,14 @@ pub fn term_supports_color() -> bool {
 }
 
 /// Check `TERM` for ANSI color support
+#[inline]
 #[cfg(not(windows))]
 pub fn term_supports_ansi_color() -> bool {
     term_supports_color()
 }
 
 /// Check `TERM` for ANSI color support
+#[inline]
 #[cfg(windows)]
 pub fn term_supports_ansi_color() -> bool {
     match std::env::var_os("TERM") {
@@ -101,6 +108,7 @@ pub fn term_supports_ansi_color() -> bool {
 /// Check [COLORTERM] for truecolor support
 ///
 /// [COLORTERM]: https://github.com/termstandard/colors
+#[inline]
 pub fn truecolor() -> bool {
     let value = std::env::var_os("COLORTERM");
     let value = value.as_deref().unwrap_or_default();
