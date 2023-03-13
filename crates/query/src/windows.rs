@@ -1,6 +1,5 @@
 #[cfg(windows)]
 mod windows_console {
-    use std::os::windows::io::AsHandle;
     use std::os::windows::io::AsRawHandle;
     use std::os::windows::io::RawHandle;
 
@@ -33,11 +32,9 @@ mod windows_console {
 
     fn enable_ansi_colors_raw() -> std::io::Result<()> {
         let stdout = std::io::stdout();
-        let stdout_handle = stdout.as_handle();
-        let stdout_handle = stdout_handle.as_raw_handle();
+        let stdout_handle = stdout.as_raw_handle();
         let stderr = std::io::stderr();
-        let stderr_handle = stderr.as_handle();
-        let stderr_handle = stderr_handle.as_raw_handle();
+        let stderr_handle = stderr.as_raw_handle();
 
         enable_vt(stdout_handle)?;
         if stdout_handle != stderr_handle {
