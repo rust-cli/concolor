@@ -1,5 +1,5 @@
 fn main() {
-    println!("clicolor: {}", concolor_query::clicolor());
+    println!("clicolor: {:?}", concolor_query::clicolor());
     println!("clicolor_force: {}", concolor_query::clicolor_force());
     println!("no_color: {}", concolor_query::no_color());
     println!(

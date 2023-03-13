@@ -2,7 +2,9 @@ pub mod windows;
 
 /// Check [CLICOLOR] status
 ///
-/// ANSI colors are supported and should be used when the program isn't piped.
+/// - When `true`, ANSI colors are supported and should be used when the program isn't piped,
+///   similar to [`term_supports_color`]
+/// - When `false`, don’t output ANSI color escape codes, similar to [`no_color`]
 ///
 /// See also:
 /// - [terminfo](https://crates.io/crates/terminfo) or [term](https://crates.io/crates/term) for
@@ -11,12 +13,9 @@ pub mod windows;
 ///
 /// [CLICOLOR]: https://bixense.com/clicolors/
 #[inline]
-pub fn clicolor() -> bool {
-    let value = std::env::var_os("CLICOLOR");
-    value
-        .as_deref()
-        .unwrap_or_else(|| std::ffi::OsStr::new("1"))
-        != "0"
+pub fn clicolor() -> Option<bool> {
+    let value = std::env::var_os("CLICOLOR")?;
+    Some(value != "0")
 }
 
 /// Check [CLICOLOR_FORCE] status
