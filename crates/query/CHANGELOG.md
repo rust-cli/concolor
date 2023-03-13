@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- Fix MSRV on Windows
+
 ## [0.3.2] - 2023-03-13
 
 ### Fixes
