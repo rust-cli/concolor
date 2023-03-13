@@ -34,6 +34,8 @@ pub fn clicolor_force() -> bool {
 
 /// Check [NO_COLOR] status
 ///
+/// When `true`, should prevent the addition of ANSI color.
+///
 /// User-level configuration files and per-instance command-line arguments should override
 /// [NO_COLOR]. A user should be able to export `$NO_COLOR` in their shell configuration file as a
 /// default, but configure a specific program in its configuration file to specifically enable
@@ -42,7 +44,8 @@ pub fn clicolor_force() -> bool {
 /// [NO_COLOR]: https://no-color.org/
 #[inline]
 pub fn no_color() -> bool {
-    std::env::var_os("NO_COLOR").is_some()
+    let value = std::env::var_os("NO_COLOR");
+    value.as_deref().unwrap_or_else(|| std::ffi::OsStr::new("")) != ""
 }
 
 /// Check `TERM` for color support
