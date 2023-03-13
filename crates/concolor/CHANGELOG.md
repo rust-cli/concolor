@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.1.1] - 2023-03-13
+
 ### Fixes
 
 - Correctly handle `NO_COLOR=""` (disables `NO_COLOR`)
@@ -57,7 +59,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.0.3] - 2021-08-04
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/git-stack/compare/concolor-v0.1.0...HEAD
+[Unreleased]: https://github.com/epage/git-stack/compare/concolor-v0.1.1...HEAD
+[0.1.1]: https://github.com/epage/git-stack/compare/concolor-v0.1.0...concolor-v0.1.1
 [0.1.0]: https://github.com/epage/git-stack/compare/concolor-v0.0.12...concolor-v0.1.0
 [0.0.12]: https://github.com/epage/git-stack/compare/concolor-v0.0.11...concolor-v0.0.12
 [0.0.11]: https://github.com/epage/git-stack/compare/concolor-v0.0.9...concolor-v0.0.11
