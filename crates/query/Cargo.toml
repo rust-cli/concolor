@@ -1,6 +1,6 @@
 [package]
 name = "concolor-query"
-version = "0.3.0"
+version = "0.3.1"
 license = "MIT OR Apache-2.0"
 description = "Look up colored console capabilities"
 repository = "https://github.com/rust-cli/concolor"
