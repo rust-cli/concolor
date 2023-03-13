@@ -42,7 +42,8 @@ pub fn clicolor_force() -> bool {
 /// [NO_COLOR]: https://no-color.org/
 #[inline]
 pub fn no_color() -> bool {
-    std::env::var_os("NO_COLOR").is_some()
+    let value = std::env::var_os("NO_COLOR");
+    value.as_deref().unwrap_or_else(|| std::ffi::OsStr::new("")) != ""
 }
 
 /// Check `TERM` for color support
