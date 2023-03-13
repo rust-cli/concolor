@@ -89,7 +89,7 @@ fn init() -> usize {
 
     #[cfg(feature = "clicolor")]
     {
-        if concolor_query::clicolor() {
+        if concolor_query::clicolor().unwrap_or(true) {
             flags |= InternalFlags::CLICOLOR;
         }
         if concolor_query::clicolor_force() {
