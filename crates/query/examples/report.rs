@@ -15,4 +15,5 @@ fn main() {
         "enable_ansi_colors: {:?}",
         concolor_query::windows::enable_ansi_colors()
     );
+    println!("is_ci: {:?}", concolor_query::is_ci());
 }
