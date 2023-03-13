@@ -34,6 +34,8 @@ pub fn clicolor_force() -> bool {
 
 /// Check [NO_COLOR] status
 ///
+/// When `true`, should prevent the addition of ANSI color.
+///
 /// User-level configuration files and per-instance command-line arguments should override
 /// [NO_COLOR]. A user should be able to export `$NO_COLOR` in their shell configuration file as a
 /// default, but configure a specific program in its configuration file to specifically enable
