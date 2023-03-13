@@ -95,7 +95,7 @@ version = "1.0.0"
 
 [[package]]
 name = "concolor-query"
-version = "0.3.1"
+version = "0.3.2"
 dependencies = [
  "windows-sys 0.45.0",
 ]
