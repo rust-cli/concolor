@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- Correctly handle `NO_COLOR=""` (disables `NO_COLOR`)
+
 ## [0.3.1] - 2023-03-13
 
 ### Features
