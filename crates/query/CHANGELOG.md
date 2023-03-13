@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- Allow distinguishing set from unset for `clicolor()`
+
 ## [0.2.1] - 2023-03-08
 
 ### Performance
