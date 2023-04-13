@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## Compatibility
+
+- Redirect people to `colorchoice`
+- Bump MSRV to 1.64.0
+
 ## [1.0.0] - 2023-03-07
 
 <!-- next-url -->
